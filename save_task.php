@@ -14,7 +14,7 @@ include("db.php");
             die("Query fail");
         }
         
-        $_SESSION['message'] = 'Task Saved Succesfully fully';
+        $_SESSION['message'] = 'Task Saved Succesfully';
         $_SESSION['color-message'] = 'success';
 
         header("Location: index.php");

@@ -25,6 +25,36 @@
                 </div>
             </div>
             <div class="col-md-8">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Created At</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            $query = "SELECT * FROM task";
+                            $result_tasks = mysqli_query($conn, $query);
+                            while($row = mysqli_fetch_array($result_tasks)) { ?>
+                                <tr>
+                                    <td><?php echo $row['title']?></td>
+                                    <td><?php echo $row['description']?></td>
+                                    <td><?php echo $row['created_at']?></td>
+                                    <td>
+                                        <a href="edit.php?id=<?php echo $row['id']?>" class="btn btn-secondary" >
+                                        <i class="far fa-edit"></i>
+                                        </a>
+                                        <a class="btn btn-danger" href="delete_task.php?id=<?php echo $row['id']?>">
+                                            <i class="fas fa-trash-alt"></i>    
+                                        </a>
+                                    </td>
+                                </tr>
+                        <?php }?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
